@@ -1,8 +1,8 @@
-*{
+* {
   color: #fff;
 }
 .custom-bg-dark {
-  background-color: #373f46 !important; 
+  background-color: #373f46 !important;
 }
 
 nav.navbar {
@@ -14,19 +14,19 @@ a.navbar-brand {
   letter-spacing: 3px;
 }
 
-li.nav-item a{
+li.nav-item a {
   text-transform: uppercase;
 }
 
 @media screen and (max-width: 767px) {
-  div#navbarCollapse{
+  div#navbarCollapse {
     width: 100%;
     position: fixed;
     top: 75px;
     left: 0;
     padding-left: 20px;
     padding-bottom: 5px;
-    background-color: #373f46; 
+    background-color: #373f46;
   }
 }
 
@@ -62,7 +62,7 @@ div#custom-home {
 }
 
 .btn-primary {
-  background-color: #32ACED !important;
+  background-color: #32aced !important;
 }
 
 .btn-success {
@@ -71,4 +71,12 @@ div#custom-home {
 
 .btn-success:hover {
   background-color: #3da978;
-} 
+}
+
+form.custom-form {
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}

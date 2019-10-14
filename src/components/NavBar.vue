@@ -27,13 +27,17 @@
             <router-link to="/register" class="nav-link" exact>Register</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/logim" class="nav-link" exact>Login</router-link>
+            <router-link to="/login" class="nav-link" exact>Login</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/logout" class="nav-link" exact>Logout</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/" class="nav-link" exact>salEZY</router-link>
+            <router-link
+              to="/"
+              class="nav-link"
+              exact
+            >{{ this.$store.state.username ? this.$store.state.username : 'User' }}</router-link>
           </li>
         </ul>
       </div>
