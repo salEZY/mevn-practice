@@ -11,10 +11,13 @@
     "start": "concurrently \"set NODE_ENV=production\" \"npm run server\" \"npm run serve\""
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "morgan": "^1.9.1",
     "popper.js": "^1.15.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
