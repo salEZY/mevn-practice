@@ -1,5 +1,5 @@
 module.exports = {
   index: (req, res) => {
-    return res.json({ message: 'Hello world!' })
+    return res.status(200).json({ message: 'Hello world!' })
   }
 }

@@ -4,7 +4,7 @@ module.exports = {
   index: (req, res) => {
     const validation = this.validateIndex(req.body)
     if (!validation.isValid) {
-      return res.json({ message: validation.message })
+      return res.status(400).json({ message: validation.message })
     }
 
     const user = {
@@ -12,7 +12,7 @@ module.exports = {
       password: req.body.password
     }
     console.log(user)
-    return res.json()
+    return res.status(201).json()
   },
   validateIndex: body => {
     let errors = ''

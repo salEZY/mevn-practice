@@ -15,7 +15,7 @@ export default {
   },
   beforeCreate: function() {
     fetch(this.$store.state.apiUrl + "/api/user")
-      .then(res => res.json())
+      // .then(res => res.json())
       .then(res => console.log(res));
   }
 };
