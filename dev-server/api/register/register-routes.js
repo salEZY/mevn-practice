@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const { index } = require('./register-controller')
 
-router.post('/register', (req, res) => {
-  res.send('Post REGISTER - register')
-})
+router.post('/register', index)
 
 module.exports = router

@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const { index } = require('./user-controller')
 
-router.get('/user', (req, res) => {
-  res.send('GET user - get all users')
-})
+router.get('/user', index)
 
 module.exports = router
