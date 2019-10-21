@@ -19,7 +19,7 @@ module.exports = {
           return res.status(401).json()
         }
 
-        const passMatch = true
+        const passMatch = User.passwordMatches(req.body.password, user.password)
         if (!passMatch) {
           return res.status(401).json()
         }

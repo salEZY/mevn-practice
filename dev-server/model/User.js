@@ -12,6 +12,11 @@ const UserSchema = new mongoose.Schema({
   }
 })
 UserSchema.set('timestamps', true)
+
+UserSchema.statics.passwordMatches = (password, hash) => {
+  return bcrypt.compareSync(password, hash)
+}
+
 UserSchema.pre('save', function(next) {
   const unsafePassword = this.password
   this.password = bcrypt.hashSync(unsafePassword)
