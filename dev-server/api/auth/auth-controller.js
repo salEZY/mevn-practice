@@ -1,18 +1,31 @@
 const StringUtil = require('./../../utilities/string-util')
+const User = require('../../model/User')
 
 module.exports = {
-  index: (req, res) => {
+  index: async (req, res) => {
     const validation = this.validateIndex(req.body)
     if (!validation.isValid) {
       return res.status(400).json({ message: validation.message })
     }
 
-    const user = {
-      username: req.body.username.toLowerCase(),
-      password: req.body.password
-    }
-    console.log(user)
-    return res.status(201).json()
+    await User.findOne(
+      { username: req.body.username.toLowerCase() },
+      (err, user) => {
+        if (err) {
+          return res.status(500).json()
+        }
+
+        if (!user) {
+          return res.status(401).json()
+        }
+
+        const passMatch = true
+        if (!passMatch) {
+          return res.status(401).json()
+        }
+        return res.status(200).json
+      }
+    )
   },
   validateIndex: body => {
     let errors = ''

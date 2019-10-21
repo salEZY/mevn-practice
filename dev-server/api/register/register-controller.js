@@ -1,4 +1,5 @@
 const StringUtil = require('./../../utilities/string-util')
+const User = require('../../model/User')
 
 module.exports = {
   index: (req, res) => {
@@ -7,12 +8,21 @@ module.exports = {
       return res.status(400).json({ message: validation.message })
     }
 
-    const user = {
-      username: req.body.username.toLowerCase(),
+    const user = new User({
+      name: req.body.username,
       password: req.body.password
-    }
-    console.log(user)
-    return res.status(204).json()
+    })
+
+    user.save(err => {
+      if (err) {
+        if (err.code === 11000) {
+          return res.status(403).json({ message: 'Username is already taken!' })
+        }
+        return res.status(500).json()
+      }
+
+      return res.status(201).json({ message: `${user.name} is registered!` })
+    })
   },
   validateIndex: body => {
     let errors = ''
