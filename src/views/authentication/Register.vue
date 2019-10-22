@@ -3,14 +3,8 @@
     <h1>Register Route</h1>
     <form class="custom-form" v-on:submit.prevent="onSubmit">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          v-model="username"
-          type="text"
-          class="form-control"
-          id="username"
-          placeholder="Username"
-        />
+        <label for="username">Name</label>
+        <input v-model="name" type="text" class="form-control" id="name" placeholder="name" />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -36,14 +30,14 @@ export default {
   name: "register",
   data: function() {
     return {
-      username: "",
+      name: "",
       password: ""
     };
   },
   methods: {
     onSubmit: async function() {
       const user = {
-        username: this.username,
+        username: this.name,
         password: this.password
       };
       const registerPromise = auth.registerUser(user);

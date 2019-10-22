@@ -4,13 +4,7 @@
     <form class="custom-form" v-on:submit.prevent="onSubmit">
       <div class="form-group">
         <label for="username">Username</label>
-        <input
-          v-model="username"
-          type="text"
-          class="form-control"
-          id="username"
-          placeholder="Username"
-        />
+        <input v-model="name" type="text" class="form-control" id="name" placeholder="name" />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -36,14 +30,14 @@ export default {
   name: "login",
   data: function() {
     return {
-      username: "",
+      name: "",
       password: ""
     };
   },
   methods: {
     onSubmit: async function() {
       const user = {
-        username: this.username,
+        username: this.name,
         password: this.password
       };
       await auth.login(user);

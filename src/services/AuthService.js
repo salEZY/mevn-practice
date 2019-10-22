@@ -11,10 +11,7 @@ export function login(user) {
     .post('/auth', user)
     .then(res => {
       if (res) {
-        const fakeToken = {
-          token: 'my-token'
-        }
-        setToken(fakeToken)
+        setToken(res.data.token)
       }
     })
 }
