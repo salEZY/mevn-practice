@@ -4,8 +4,8 @@ const { generateJWT } = require('../../services/auth-service')
 
 const validateIndex = body => {
   let errors = ''
-  if (StringUtil.isEmpty(body.username)) {
-    errors += 'Username is required.'
+  if (StringUtil.isEmpty(body.name)) {
+    errors += 'Name is required.'
   }
   if (StringUtil.isEmpty(body.password)) {
     errors += 'Password is required.'
