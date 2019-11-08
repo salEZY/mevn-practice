@@ -20,17 +20,17 @@
           <li class="nav-item">
             <router-link to="/" class="nav-link" exact>Home</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="$store.state.isLoggedIn" class="nav-item">
             <router-link to="/tasks" class="nav-link" exact>Tasks</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="!$store.state.isLoggedIn" class="nav-item">
             <router-link to="/register" class="nav-link" exact>Register</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="!$store.state.isLoggedIn" class="nav-item">
             <router-link to="/login" class="nav-link" exact>Login</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/logout" class="nav-link" exact>Logout</router-link>
+          <li v-if="$store.state.isLoggedIn" class="nav-item">
+            <router-link v-on:click.prevent="logout()" to="/logout" class="nav-link" exact>Logout</router-link>
           </li>
           <li class="nav-item">
             <router-link
@@ -44,3 +44,18 @@
     </nav>
   </header>
 </template>
+
+<script>
+import * as auth from "../services/AuthService";
+
+import func from "../../vue-temp/vue-editor-bridge";
+export default {
+  name: "Navbar",
+  methods: {
+    logout: function() {
+      auth.logout();
+      this.$router.push({ name: "home" });
+    }
+  }
+};
+</script>

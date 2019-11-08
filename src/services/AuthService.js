@@ -16,8 +16,13 @@ export function login(user) {
     })
 }
 
+export function logout() {
+  localStorage.clear()
+  store.dispatch('authenticate')
+}
+
 export function setToken(token) {
-  localStorage.setItem('token', JSON.stringify(token))
+  localStorage.setItem('token', token)
   store.dispatch('authenticate')
 }
 
