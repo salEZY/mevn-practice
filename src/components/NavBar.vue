@@ -48,7 +48,7 @@
 <script>
 import * as auth from "../services/AuthService";
 
-import func from "../../vue-temp/vue-editor-bridge";
+//import func from "../../vue-temp/vue-editor-bridge";
 export default {
   name: "Navbar",
   methods: {

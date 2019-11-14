@@ -14,7 +14,7 @@ export default {
     HelloWorld
   },
   beforeCreate: function() {
-    fetch(this.$store.state.apiUrl + "/api/user")
+    fetch(this.$store.state.apiUrl + "/user")
       // .then(res => res.json())
       .then(res => console.log(res));
   }
