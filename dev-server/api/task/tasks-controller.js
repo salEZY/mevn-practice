@@ -1,6 +1,7 @@
 const Moment = require('moment')
 const User = require('../../model/User')
 const Task = require('../../model/Task')
+const auth = require('../../services/auth-service')
 
 module.exports = {
   index: (req, res) => {
@@ -12,7 +13,7 @@ module.exports = {
     }).populate('author', 'username', 'user')
   },
   create: async (req, res) => {
-    const id = 10
+    const id = auth.getUserId(req)
     try {
       const user = await User.findOne({ _id: id })
 
@@ -33,7 +34,7 @@ module.exports = {
   },
   update: async (req, res) => {
     try {
-      const id = 15
+      const id = auth.getUserId(req)
 
       const user = await User.findOne({ _id: id })
 
@@ -58,7 +59,7 @@ module.exports = {
     }
   },
   remove: async (req, res) => {
-    const id = 5
+    const id = auth.getUserId(req)
     try {
       const task = await Task.findOne({ _id: req.params.id })
 

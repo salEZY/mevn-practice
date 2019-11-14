@@ -27,5 +27,21 @@ module.exports = {
       return res.status(401).json({ message: 'You have to be logged in!' })
     }
     next()
+  },
+  getUsername: req => {
+    const token = this.decodeToken(req)
+
+    if (!token) {
+      return null
+    }
+    return token.user.name
+  },
+  getUserId: req => {
+    const token = this.decodeToken(req)
+
+    if (!token) {
+      return null
+    }
+    return token.user.id
   }
 }

@@ -1,5 +1,6 @@
 import store from '../store'
 import { http } from './HttpService'
+import jwt from 'jsonwebtoken'
 
 export function isLoggedIn() {
   const token = localStorage.getItem('token')
@@ -31,13 +32,29 @@ export function getToken() {
 }
 
 export function getUsername() {
-  return 'salezy'
+  const token = decodeToken()
+  if (!token) {
+    return null
+  }
+  return token.user.name
 }
 
 export function getUserId() {
-  return 1
+  const token = decodeToken()
+  if (!token) {
+    return null
+  }
+  return token.user.id
 }
 
 export function registerUser(user) {
   return http().post('/register', user)
+}
+
+export function decodeToken() {
+  const token = getToken()
+  if (!token) {
+    return null
+  }
+  return jwt.decode(token)
 }
