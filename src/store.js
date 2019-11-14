@@ -15,10 +15,10 @@ export default new Vuex.Store({
     authenticate(state) {
       state.isLoggedIn = auth.isLoggedIn()
       if (state.isLoggedIn) {
-        state.username = auth.getUsername()
+        state.name = auth.getUsername()
         state.userId = auth.getUserId()
       } else {
-        state.username = null
+        state.name = null
         state.userId = null
       }
     }

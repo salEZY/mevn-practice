@@ -3,8 +3,8 @@
     <h1>Login Route</h1>
     <form class="custom-form" v-on:submit.prevent="onSubmit">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input v-model="name" type="text" class="form-control" id="name" placeholder="name" />
+        <label for="name">Name</label>
+        <input v-model="name" type="text" class="form-control" id="name" placeholder="Name" />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
