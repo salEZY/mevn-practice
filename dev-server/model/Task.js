@@ -24,4 +24,5 @@ const TaskSchema = new mongoose.Schema({
   }
 })
 
+// eslint-disable-next-line no-undef
 module.exports = Task = mongoose.model('task', TaskSchema)
